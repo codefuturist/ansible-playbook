@@ -9,4 +9,4 @@
         update_cache: yes
     - name: Reboot a slow machine that might have lots of updates to apply
       ansible.builtin.reboot:
-        reboot_timeout: 120
+        reboot_timeout: 300
