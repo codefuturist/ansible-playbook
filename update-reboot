@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  become: true
+  tasks:
+    - name: update apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+    - name: Reboot a slow machine that might have lots of updates to apply
+      ansible.builtin.reboot:
+        reboot_timeout: 3600
