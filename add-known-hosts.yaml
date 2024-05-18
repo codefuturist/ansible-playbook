@@ -1,0 +1,14 @@
+---
+- name: Add hosts fingerprints
+  hosts:
+    - 127.0.0.1
+
+  tasks:
+    - name: loop over hosts and append to known_hosts
+      shell:
+        cmd: 
+          "ssh-keyscan -t ED25519 {{ item }} >> /root/.ssh/known_hosts"
+      loop:
+        - 192.168.2.252
+        - 192.168.10.253
+        - 192.168.2.192
